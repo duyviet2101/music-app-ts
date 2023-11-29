@@ -8,10 +8,17 @@ const port: number | string = process.env.PORT || 3010;
 
 database.connect();
 
+
 app.set("views", "./views");
 app.set("view engine", "pug");
 
-app.get('/topics', (req: Request, res: Response) => {
+import Topic from './models/topic.model';
+app.get('/topics', async (req: Request, res: Response) => {
+    const topics = await Topic.find({
+        deleted: false,
+    });
+
+    console.log(topics);
     res.render("client/pages/topics/index")
 });
 
