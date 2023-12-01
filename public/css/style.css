@@ -222,4 +222,12 @@
     padding: 10px 15px;
 }
 
+.singer-detail .inner-actions .inner-like.active {
+    color: #0059ff;
+}
+
+.singer-detail .inner-actions .inner-like.active i {
+    font-weight: 900;
+}
+
 /* End singer-detail */
