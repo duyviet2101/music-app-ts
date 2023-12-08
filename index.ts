@@ -1,4 +1,5 @@
 import express, {Express} from 'express';
+import methodOverride from "method-override";
 import * as database from "./config/database";
 import dotenv from "dotenv";
 import clientRoutes from './routes/client/index.route';
@@ -21,8 +22,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/tinymce",
-    express.static(path.join(__dirname, "node_modules/tinymce"))
+    express.static(path.join(__dirname, "node_modules","tinymce"))
 );  
+
+app.use(methodOverride("_method"))
 
 app.locals.prefixAdmin = systemConfig.prefixAdmin;
 
